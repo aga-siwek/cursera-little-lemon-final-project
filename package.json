@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "hamburger-react": "^2.5.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-burger-menu": "^3.1.0",
+    "react-dom": "^19.0.0",
+    "react-native": "^0.78.1",
+    "react-router-dom": "^7.4.0",
+    "react-svg": "^16.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
