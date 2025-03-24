@@ -1,0 +1,110 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(32rem/16);
+    padding: 16px;
+}
+
+.form_table_information, .form_personal_information  {
+    display: flex;
+    flex-direction: column;
+    gap: calc(16rem/16);
+}
+
+.form__header {
+    color: var(--clr-primary-1);
+    font-size: calc(32rem/16);
+}
+
+.form__table, .form__personal {
+    display: flex;
+    flex-direction: column;
+    gap: calc(16rem/16);
+}
+
+.form__area {
+    display: flex;
+    flex-direction: column;
+    gap: calc(8rem/16);
+}
+
+.form__area_special_request {
+    display: flex;
+    flex-direction: column;
+    gap: calc(16rem/16);
+}
+
+form__area_special_request_check {
+    display: flex;
+    flex-direction: row;
+    gap: calc(8rem/16);
+}
+.form__count_container {
+    display: flex;
+    flex-direction: row;
+    gap: calc(16rem/16);
+    justify-content: center;
+    align-items: center;
+}
+
+.form__count_result {
+    font-weight: bold;
+}
+
+.form__count_increase, .form__count_decrease {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--clr-primary-1);
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    padding: 16px;
+    background-color: var(--clr-secondary-5);
+    font-size: calc(32rem/16);
+}
+
+.form__count_increase:hover, .form__count_decrease:hover {
+    background-color: var(--clr-primary-1);
+    color: var(--clr-secondary-3);
+}
+
+
+.form__checkbox {
+    display: flex;
+    flex-direction: row;
+    gap: calc(8rem/16);
+}
+
+select, input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-primary-1);
+}
+
+.form__button {
+    background-color: var(--clr-primary-1);
+    color: var(--clr-primary-2);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-primary-1);
+}
+
+.form__button:hover {
+    background-color: var(--clr-secondary-5);
+    color: var(--clr-secondary-4);
+}
+
+.form__error {
+    color: var(--clr-secondary-1)
+}
+@media  (min-width: calc(1440rem / 16)) {
+    .container {
+        width: 800px;
+        padding: 48px;
+    }
+}
+
+
+

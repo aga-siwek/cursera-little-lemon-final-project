@@ -29,4 +29,12 @@
     gap: 16px;
 }
 
+@media  (min-width: calc(1440rem / 16)) {
+    .specials__cards {
+        flex-direction: row;
+    }
+    .specials__header_text {
+        font-size: calc(32rem/16);
+    }
+}
 

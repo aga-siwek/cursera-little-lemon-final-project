@@ -65,3 +65,30 @@
     gap: calc(16rem/16)
 }
 
+@media  (min-width: calc(1440rem / 16)) {
+    .about {
+        padding: 48px;
+    }
+    .about__content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+    }
+
+    .about__image {
+        max-width: 800px;
+    }
+
+    .about__header__body {
+        font-size: calc(32rem/16);
+    }
+
+    .about__body {
+        font-size: calc(22rem/16);
+    }
+
+    .about__team_cards{
+      flex-direction: row;
+        gap: 16px;
+    }
+}

@@ -8,7 +8,6 @@
     border-radius: 8px;
     justify-content: center;
     align-items: center;
-
 }
 .card__image__wrapper{}
 .card__image{
@@ -39,4 +38,14 @@
 }
 .card__body{}
 .card__button{}
+
+@media  (min-width: calc(1440rem / 16)) {
+    .card {
+        max-width: 400px;
+        padding: 48px 48px;
+    }
+
+    .card__content {
+    }
+}
 

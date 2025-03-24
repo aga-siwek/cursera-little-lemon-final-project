@@ -6,6 +6,7 @@
     gap: calc(8rem/16);
     border: 2px solid var(--clr-primary-1);
     border-radius: 8px;
+    padding: 16px;
 }
 
 .card__image {

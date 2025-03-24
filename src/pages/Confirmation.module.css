@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media  (min-width: calc(1440rem / 16)) {
+    .container {
+    }
+}

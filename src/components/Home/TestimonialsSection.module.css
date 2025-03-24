@@ -25,3 +25,9 @@
     align-items: center;
     gap: calc(16rem/16);
 }
+
+@media  (min-width: calc(1440rem / 16)) {
+    .testimonials__header__text {
+        font-size: calc(32rem/16);
+    }
+}

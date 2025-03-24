@@ -2,6 +2,7 @@ import HeroSection from "../components/Home/HeroSection.jsx";
 import SpecialsSection from "../components/Home/SpecialsSection.jsx";
 import TestimonialsSection from "../components/Home/TestimonialsSection.jsx";
 import AboutUsSection from "../components/Home/AboutUsSection.jsx";
+import styles from "./Home.module.css";
 import {getDishes} from "../dishes.js";
 
 function Home() {
@@ -22,7 +23,7 @@ function Home() {
     console.log(specialDishes)
 
     return (
-        <main>
+        <main className={styles.container}>
             <HeroSection/>
             <SpecialsSection specials={specialDishes}/>
             <TestimonialsSection />
