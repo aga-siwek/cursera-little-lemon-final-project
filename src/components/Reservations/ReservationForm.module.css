@@ -47,11 +47,16 @@ form__area_special_request_check {
     align-items: center;
 }
 
-.form__count_result {
+.form__count_result_adult,
+.form__count_result_children
+{
     font-weight: bold;
 }
 
-.form__count_increase, .form__count_decrease {
+.form__count_decrease_adult,
+.form__count_increase_adult,
+.form__count_decrease_children,
+.form__count_increase_children{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +70,10 @@ form__area_special_request_check {
     font-size: calc(32rem/16);
 }
 
-.form__count_increase:hover, .form__count_decrease:hover {
+.form__count_decrease_adult:hover,
+.form__count_increase_adult:hover,
+.form__count_decrease_children:hover,
+.form__count_increase_children:hover {
     background-color: var(--clr-primary-1);
     color: var(--clr-secondary-3);
 }

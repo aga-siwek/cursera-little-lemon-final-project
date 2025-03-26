@@ -12,7 +12,6 @@ export default function HamburgerMenu() {
 
                     <ul className={styles.menu_list}>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/menu">Menu</a></li>
                         <li><a href="/reservations">Reservations</a></li>
                     </ul>
                 </div>}

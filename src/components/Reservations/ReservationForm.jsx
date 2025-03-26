@@ -4,7 +4,7 @@ import Confirmation from "../../pages/Confirmation.jsx";
 import {useFormik} from 'formik';
 import {basicSchema} from "../../shemas/reservationForm.js";
 
-export default function ReservationForm({handleFillForm}) {
+export default function ReservationForm({handleFillForm, availableTimes, getAvailableTimes}) {
 
     const refAdult = useRef(0);
     const refChildren = useRef(null);
@@ -15,7 +15,7 @@ export default function ReservationForm({handleFillForm}) {
         familyArea: false,
         babyChair: false
     });
-
+    let confirmation = {}
     const {
         values,
         errors,
@@ -35,14 +35,15 @@ export default function ReservationForm({handleFillForm}) {
             email: "",
         },
         validationSchema: basicSchema,
-        onSubmit: ()=>{onSubmit()}
+        onSubmit: () => {
+            onSubmit()
+        }
     });
 
     const onSubmit = () => {
         console.log("subbmit")
-        let confirmation = {}
-        confirmation.bookDate = values.bookDate
-        confirmation.time = values.time
+        confirmation.bookDate = values.bookDate;
+        confirmation.time = values.time;
         confirmation.countAdult = countAdults;
         confirmation.countChildren = countChildren;
         confirmation.occasion = values.occasion;
@@ -51,8 +52,10 @@ export default function ReservationForm({handleFillForm}) {
         confirmation.lastName = values.lastName
         confirmation.phone = values.phone
         confirmation.email = values.email;
-        console.log("message from confirmation")
         console.log(confirmation)
+
+        const date = new Date(confirmation.bookDate);
+        console.log(date.getDate())
         handleFillForm(confirmation);
     };
 
@@ -99,6 +102,7 @@ export default function ReservationForm({handleFillForm}) {
             setSpecialRequest({...specialRequest, ["babyChair"]: e.target.checked})
         }
     }
+
     return (
         <div>
             <form className={styles.container} onSubmit={handleSubmit}>
@@ -109,13 +113,16 @@ export default function ReservationForm({handleFillForm}) {
                             <label htmlFor="date">Start date:</label>
                             <input
                                 type="date"
-                                id="start"
+                                id="date"
+                                min="2025-03-01"
+                                max="2025-04-30"
                                 name="bookDate"
                                 value={values.bookDate}
-                                onChange={handleChange}
-                                onBlur={handleBlur}/>
-                            {errors.bookDate && touched.bookDate &&
-                                <p className={styles.form__error}>{errors.bookDate}</p>}
+                                onChange={(e)=>{
+                                    handleChange(e);
+                                    getAvailableTimes(e.target.value)
+                                    }}/>
+                            {errors.bookDate && touched.bookDate && <p className={styles.form__error}>{errors.bookDate}</p>}
                         </div>
                         <div className={styles.form__area}>
                             <label htmlFor="time">Time:</label>
@@ -125,27 +132,24 @@ export default function ReservationForm({handleFillForm}) {
                                 value={values.time}
                                 onChange={handleChange}
                                 onBlur={handleBlur}>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
+                                {availableTimes.map((time) => <option value={time}>{time}</option>)}
                             </select>
                             {errors.time && touched.time && <p className={styles.form__error}>{errors.time}</p>}
                         </div>
                         <div className={styles.form__area}>
                             <label htmlFor="adult">Number of adult:</label>
                             <div className={styles.form__count_container}>
-                                <div className={styles.form__count_decrease} onClick={decreaseCountAdult}>-</div>
-                                <div className={styles.form__count_result}>{countAdults}</div>
-                                <div className={styles.form__count_increase} onClick={increaseCountAdult}>+</div>
+                                <div className={styles.form__count_decrease_adult} data-testid="decrease_adult" aria-label="decrease adults" role="button" onClick={decreaseCountAdult}>-</div>
+                                <div className={styles.form__count_result_adult} data-testid="result_adult" aria-label="result adults" role="text">{countAdults}</div>
+                                <div className={styles.form__count_increase_adult} data-testid="increase_adult" aria-label="increase adults" role="button" onClick={increaseCountAdult}>+</div>
                             </div>
                         </div>
                         <div className={styles.form__area}>
                             <label htmlFor="children">Number of children:</label>
                             <div className={styles.form__count_container}>
-                                <div className={styles.form__count_decrease} onClick={decreaseCountChildren}>-</div>
-                                <div className={styles.form__count_result}>{countChildren}</div>
-                                <div className={styles.form__count_increase} onClick={increaseCountChildren}>+</div>
+                                <div className={styles.form__count_decrease_children} data-testid="decrease_children" aria-label="decrease children" role="button" onClick={decreaseCountChildren}>-</div>
+                                <div className={styles.form__count_result_children} data-testid="result_children" aria-label="result children" role="text">{countChildren}</div>
+                                <div className={styles.form__count_increase_children} data-testid="increase_children" aria-label="increase children" role="children" onClick={increaseCountChildren}>+</div>
                             </div>
                         </div>
                         <div className={styles.form__area}>
