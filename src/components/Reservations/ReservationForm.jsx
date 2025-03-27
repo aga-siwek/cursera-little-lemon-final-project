@@ -1,6 +1,5 @@
 import styles from "./ReservationForm.module.css"
 import {useRef, useState} from "react";
-import Confirmation from "../../pages/Confirmation.jsx";
 import {useFormik} from 'formik';
 import {basicSchema} from "../../shemas/reservationForm.js";
 
@@ -15,6 +14,8 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
         familyArea: false,
         babyChair: false
     });
+    const [adultErrorMessage, setAdultErrorMessage] = useState(false);
+    const [childrenErrorMessage, setChildrenErrorMessage] = useState(false);
     let confirmation = {}
     const {
         values,
@@ -41,7 +42,6 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
     });
 
     const onSubmit = () => {
-        console.log("subbmit")
         confirmation.bookDate = values.bookDate;
         confirmation.time = values.time;
         confirmation.countAdult = countAdults;
@@ -52,44 +52,50 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
         confirmation.lastName = values.lastName
         confirmation.phone = values.phone
         confirmation.email = values.email;
-        console.log(confirmation)
-
-        const date = new Date(confirmation.bookDate);
-        console.log(date.getDate())
         handleFillForm(confirmation);
     };
 
     const increaseCountAdult = () => {
+        setAdultErrorMessage(false);
         refAdult.current = refAdult.current + 1;
         setCountAdults(prevCountAdults => prevCountAdults + 1);
         if (countAdults >= 8) {
             setCountAdults(8);
             refAdult.current = 8;
+            setAdultErrorMessage(true);
         }
     };
+
     const decreaseCountAdult = () => {
+        setAdultErrorMessage(false);
         refAdult.current = refAdult.current - 1;
         setCountAdults(prevCountAdults => prevCountAdults - 1);
         if (countAdults <= 1) {
             setCountAdults(1);
             refAdult.current = 1;
+            setAdultErrorMessage(true);
         }
     };
 
     const increaseCountChildren = () => {
+        setChildrenErrorMessage(false);
         refChildren.current = refChildren.current + 1;
         setCountChildren(prevCountChildren => prevCountChildren + 1);
         if (countChildren >= 4) {
             setCountChildren(4);
             refAdult.current = 4;
+            setChildrenErrorMessage(true);
         }
     };
+
     const decreaseCountChildren = () => {
+        setChildrenErrorMessage(false)
         refChildren.current = refChildren.current - 1;
         setCountChildren(prevCountChildren => prevCountChildren - 1);
         if (countChildren <= 0) {
             setCountChildren(0);
             refChildren.current = 0;
+            setChildrenErrorMessage(true)
         }
     };
 
@@ -102,7 +108,6 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
             setSpecialRequest({...specialRequest, ["babyChair"]: e.target.checked})
         }
     }
-
     return (
         <div>
             <form className={styles.container} onSubmit={handleSubmit}>
@@ -118,11 +123,12 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
                                 max="2025-04-30"
                                 name="bookDate"
                                 value={values.bookDate}
-                                onChange={(e)=>{
+                                onChange={(e) => {
                                     handleChange(e);
                                     getAvailableTimes(e.target.value)
-                                    }}/>
-                            {errors.bookDate && touched.bookDate && <p className={styles.form__error}>{errors.bookDate}</p>}
+                                }}/>
+                            {errors.bookDate && touched.bookDate &&
+                                <p className={styles.form__error}>{errors.bookDate}</p>}
                         </div>
                         <div className={styles.form__area}>
                             <label htmlFor="time">Time:</label>
@@ -139,18 +145,32 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
                         <div className={styles.form__area}>
                             <label htmlFor="adult">Number of adult:</label>
                             <div className={styles.form__count_container}>
-                                <div className={styles.form__count_decrease_adult} data-testid="decrease_adult" aria-label="decrease adults" role="button" onClick={decreaseCountAdult}>-</div>
-                                <div className={styles.form__count_result_adult} data-testid="result_adult" aria-label="result adults" role="text">{countAdults}</div>
-                                <div className={styles.form__count_increase_adult} data-testid="increase_adult" aria-label="increase adults" role="button" onClick={increaseCountAdult}>+</div>
+                                <div className={styles.form__count_decrease_adult} data-testid="decrease_adult"
+                                     aria-label="decrease adults" role="button" onClick={decreaseCountAdult}>-
+                                </div>
+                                <div className={styles.form__count_result_adult} data-testid="result_adult"
+                                     aria-label="result adults" role="text">{countAdults}</div>
+                                <div className={styles.form__count_increase_adult} data-testid="increase_adult"
+                                     aria-label="increase adults" role="button" onClick={increaseCountAdult}>+
+                                </div>
                             </div>
+                            {adultErrorMessage &&
+                                <p className={styles.form__error}>You can choose from 1 to 8 adults</p>}
                         </div>
                         <div className={styles.form__area}>
                             <label htmlFor="children">Number of children:</label>
                             <div className={styles.form__count_container}>
-                                <div className={styles.form__count_decrease_children} data-testid="decrease_children" aria-label="decrease children" role="button" onClick={decreaseCountChildren}>-</div>
-                                <div className={styles.form__count_result_children} data-testid="result_children" aria-label="result children" role="text">{countChildren}</div>
-                                <div className={styles.form__count_increase_children} data-testid="increase_children" aria-label="increase children" role="children" onClick={increaseCountChildren}>+</div>
+                                <div className={styles.form__count_decrease_children} data-testid="decrease_children"
+                                     aria-label="decrease children" role="button" onClick={decreaseCountChildren}>-
+                                </div>
+                                <div className={styles.form__count_result_children} data-testid="result_children"
+                                     aria-label="result children" role="text">{countChildren}</div>
+                                <div className={styles.form__count_increase_children} data-testid="increase_children"
+                                     aria-label="increase children" role="children" onClick={increaseCountChildren}>+
+                                </div>
                             </div>
+                            {childrenErrorMessage &&
+                                <p className={styles.form__error}>You can choose from 0 to 4 children</p>}
                         </div>
                         <div className={styles.form__area}>
                             <label htmlFor="occasion">Occasion:</label>
@@ -205,7 +225,6 @@ export default function ReservationForm({handleFillForm, availableTimes, getAvai
                             {errors.firstName && touched.firstName &&
                                 <p className={styles.form__error}>{errors.firstName}</p>}
                         </div>
-
                         <div className={styles.form__area}>
                             <label htmlFor="lastName">Last Name:</label>
                             <input

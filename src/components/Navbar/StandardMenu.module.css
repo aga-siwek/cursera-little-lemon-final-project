@@ -1,7 +1,7 @@
-.menu{
+.menu {
     list-style: none;
     display: none;
-    gap: calc(10rem/16);
+    gap: calc(10rem / 16);
     color: var(--clr-secondary-4);
     padding: 5px;
 }
@@ -10,14 +10,15 @@
     text-decoration: none;
     color: inherit;
     font-weight: bold;
-    font-size: calc(22rem/16);
+    font-size: calc(22rem / 16);
 }
 
 .menu a:hover {
     background-color: var(--clr-secondary-2)
 }
 
-@media  (min-width: calc(1440rem / 16)) {
+@media (min-width: calc(1440rem / 16)) {
     .menu {
-    display: flex;}
+        display: flex;
+    }
 }

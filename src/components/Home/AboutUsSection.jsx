@@ -12,7 +12,8 @@ export default function AboutUsSection() {
                     <div className={styles.about__header__body}><p>History</p></div>
                 </div>
                 <div className={styles.about__content}>
-                    <div className={styles.about__body}><p>This cozy family restaurant in Chicago offers delicious homemade
+                    <div className={styles.about__body}><p>This cozy family restaurant in Chicago offers delicious
+                        homemade
                         dishes and a warm, welcoming atmosphere perfect for all ages. With friendly service and generous
                         portions, it’s the ideal spot for a memorable meal with loved ones.</p>
                     </div>

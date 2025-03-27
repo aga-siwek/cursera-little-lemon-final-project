@@ -9,7 +9,7 @@ export default function TestimonialCard({testimonial}) {
         for (let i = 0; i < testimonial.stars; i++) {
             stars.push(<ReactSVG src={Star} className={styles.card__good_stars}/>)
         }
-        for (let i = 0; i < 5-testimonial.stars; i++) {
+        for (let i = 0; i < 5 - testimonial.stars; i++) {
             stars.push(<ReactSVG src={Star} className={styles.card__good_no_stars}/>)
         }
         return stars;
@@ -19,7 +19,7 @@ export default function TestimonialCard({testimonial}) {
         <div className={styles.card}>
             <div className={styles.card__header}>
                 <div className={styles.card__header__image__wrapper}>
-                    <img src={getImageURL(testimonial.photo)} className={styles.card__header__image}/>
+                    <img src={getImageURL(testimonial.photo)} className={styles.card__header__image} alt={testimonial.name}/>
                 </div>
                 <div className={styles.card__header_content}>
                     <div className={styles.card__header__name}><p>{testimonial.name}</p></div>
@@ -29,6 +29,5 @@ export default function TestimonialCard({testimonial}) {
                 </div>
             </div>
             <div className={styles.card__body}>{testimonial.opinion}</div>
-
         </div>)
 }

@@ -6,7 +6,7 @@
 }
 
 .menu_icon {
-    max-width: calc(24rem/16)
+    max-width: calc(24rem / 16)
 }
 
 .menu_open {
@@ -21,29 +21,30 @@
     align-items: flex-start;
     justify-content: center;
     padding: 20px;
-
 }
+
 .menu_list {
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: calc(10rem/16);
+    gap: calc(10rem / 16);
 }
 
 .menu_list > li > a {
     color: var(--clr-secondary-4);
     text-decoration: none;
     font-weight: bold;
-    font-size: calc(36rem/16);
+    font-size: calc(36rem / 16);
 }
 
 .menu_list > li > a:hover {
     background-color: var(--clr-secondary-2)
 }
 
-@media  (min-width: calc(1440rem / 16)) {
+@media (min-width: calc(1440rem / 16)) {
     .menu {
-        display: none;}
+        display: none;
+    }
 }

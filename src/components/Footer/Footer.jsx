@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css"
-export default function Footer () {
+
+export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.footer_navigation}>
@@ -20,8 +21,7 @@ export default function Footer () {
             <div className={styles.footer_contact}>
                 <div className={styles.footer__header}>Contact</div>
                 <div className={styles.footer__body}>
-                    <p className={styles.footer__address}>Little Lemon
-                        Chicago 6</p>
+                    <p className={styles.footer__address}>Little Lemon Chicago 6</p>
                     <p className={styles.footer__phone}>535- 363-638</p>
                     <p className={styles.footer__mail}>contact@little.com</p>
                 </div>

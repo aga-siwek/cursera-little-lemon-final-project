@@ -4,7 +4,6 @@ import TestimonialCard from "./TestimonialCard";
 
 export default function TestimonialsSection() {
     const testimonials = getPositiveTestimonials()
-    console.log(testimonials)
     return (
         <div className={styles.testimonials}>
             <hr className={styles.testimonials__line}/>

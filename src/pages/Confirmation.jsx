@@ -3,10 +3,10 @@ import ConfirmInformation from "../components/Confirmation/ConfirmInformation.js
 import HeroSection from "../components/Confirmation/HeroSection.jsx"
 function Confirmation ({confirmations}) {
     return (
-        <div className={styles.container}>
+        <main className={styles.container}>
             <HeroSection />
             <ConfirmInformation confirmations={confirmations} />
-        </div>
+        </main>
     )
 }
 

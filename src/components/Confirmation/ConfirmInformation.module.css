@@ -1,34 +1,39 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     padding: 32px;
-    gap: calc(32rem/16)
+    gap: calc(32rem / 16)
 }
-.information__container{
+
+.information__container {
     display: flex;
     flex-direction: column;
-    gap: calc(16rem/16)
+    gap: calc(16rem / 16)
 }
-.information__container_header{
+
+.information__container_header {
     font-size: 22px;
     font-weight: bold;
 }
-.information__header{
+
+.information__header {
     font-size: 16px;
     font-weight: bold;
 }
 
-.information__data{
+.information__data {
     display: flex;
     flex-direction: column;
-    gap: calc(8rem/16)
+    gap: calc(8rem / 16)
 }
-.information__request {}
 
-.data{
+.information__request {
+}
+
+.data {
     display: flex;
     flex-direction: column;
-    gap: calc(16rem/16)
+    gap: calc(16rem / 16)
 }

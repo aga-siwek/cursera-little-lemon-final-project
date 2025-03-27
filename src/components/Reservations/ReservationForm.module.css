@@ -1,62 +1,62 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: calc(32rem/16);
+    gap: calc(32rem / 16);
     padding: 16px;
 }
 
-.form_table_information, .form_personal_information  {
+.form_table_information, .form_personal_information {
     display: flex;
     flex-direction: column;
-    gap: calc(16rem/16);
+    gap: calc(16rem / 16);
 }
 
 .form__header {
     color: var(--clr-primary-1);
-    font-size: calc(32rem/16);
+    font-size: calc(32rem / 16);
 }
 
 .form__table, .form__personal {
     display: flex;
     flex-direction: column;
-    gap: calc(16rem/16);
+    gap: calc(16rem / 16);
 }
 
 .form__area {
     display: flex;
     flex-direction: column;
-    gap: calc(8rem/16);
+    gap: calc(8rem / 16);
 }
 
 .form__area_special_request {
     display: flex;
     flex-direction: column;
-    gap: calc(16rem/16);
+    gap: calc(16rem / 16);
 }
 
 form__area_special_request_check {
     display: flex;
     flex-direction: row;
-    gap: calc(8rem/16);
+    gap: calc(8rem / 16);
 }
+
 .form__count_container {
     display: flex;
     flex-direction: row;
-    gap: calc(16rem/16);
+    gap: calc(16rem / 16);
     justify-content: center;
     align-items: center;
 }
 
 .form__count_result_adult,
-.form__count_result_children
-{
+.form__count_result_children {
     font-weight: bold;
 }
 
 .form__count_decrease_adult,
 .form__count_increase_adult,
 .form__count_decrease_children,
-.form__count_increase_children{
+.form__count_increase_children {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,7 +67,7 @@ form__area_special_request_check {
     border-radius: 100%;
     padding: 16px;
     background-color: var(--clr-secondary-5);
-    font-size: calc(32rem/16);
+    font-size: calc(32rem / 16);
 }
 
 .form__count_decrease_adult:hover,
@@ -82,7 +82,7 @@ form__area_special_request_check {
 .form__checkbox {
     display: flex;
     flex-direction: row;
-    gap: calc(8rem/16);
+    gap: calc(8rem / 16);
 }
 
 select, input {
@@ -100,14 +100,14 @@ select, input {
 }
 
 .form__button:hover {
-    background-color: var(--clr-secondary-5);
-    color: var(--clr-secondary-4);
+    background-color: var(--clr-secondary-4);
 }
 
 .form__error {
     color: var(--clr-secondary-1)
 }
-@media  (min-width: calc(1440rem / 16)) {
+
+@media (min-width: calc(1440rem / 16)) {
     .container {
         width: 800px;
         padding: 48px;

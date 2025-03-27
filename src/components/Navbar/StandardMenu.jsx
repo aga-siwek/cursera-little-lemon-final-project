@@ -1,4 +1,5 @@
 import styles from "./StandardMenu.module.css"
+
 export default function StandardMenu() {
     return (
         <ul className={styles.menu}>

@@ -1,4 +1,4 @@
-:root{
+:root {
     --clr-primary-1: #495E57;
     --clr-primary-2: #F4CE14;
     --clr-secondary-1: #EE9972;
@@ -7,6 +7,7 @@
     --clr-secondary-4: #333333;
     --clr-secondary-5: #c4bdbc;
 }
+
 .container {
     padding: 24px 16px;
 }

@@ -1,8 +1,6 @@
 import styles from "./ConfirmInformation.module.css"
 
 export default function ConfirmInformation({confirmations}) {
-    console.log("from confirm")
-    console.log(confirmations)
     return (
         <div className={styles.container}>
             <div className={styles.information__container}>

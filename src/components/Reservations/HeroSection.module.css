@@ -27,7 +27,7 @@
 }
 
 .hero__header_title {
-    font-size: calc(22rem/16);
+    font-size: calc(22rem / 16);
     color: var(--clr-primary-2);
     font-family: "Markazi Text";
 }
@@ -63,7 +63,7 @@
     margin: 0 auto;
 }
 
-@media  (min-width: calc(1440rem / 16)) {
+@media (min-width: calc(1440rem / 16)) {
     .hero {
         flex-direction: row;
     }

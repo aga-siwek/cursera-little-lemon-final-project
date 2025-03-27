@@ -8,7 +8,6 @@ import {getDishes} from "../dishes.js";
 function Home() {
     let specialDishes = [];
     const dishes = getDishes();
-    console.log(dishes);
 
 
     const SelectSpecialDishes = () => {
@@ -17,17 +16,16 @@ function Home() {
             dish.special === true &&
             specialDishes.push(dish)
         })
-    }
+    };
+
     SelectSpecialDishes()
-    console.log("special dishes")
-    console.log(specialDishes)
 
     return (
         <main className={styles.container}>
             <HeroSection/>
             <SpecialsSection specials={specialDishes}/>
-            <TestimonialsSection />
-            <AboutUsSection />
+            <TestimonialsSection/>
+            <AboutUsSection/>
         </main>
     )
 }

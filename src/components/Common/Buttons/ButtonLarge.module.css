@@ -1,10 +1,9 @@
-.button{
+.button {
     background-color: var(--clr-primary-2);
     color: var(--clr-primary-1);
-    font-size: calc(16rem/16);
+    font-size: calc(16rem / 16);
     font-weight: bold;
     padding: 8px 36px;
     border: 0;
     border-radius: 8px;
-
 }
